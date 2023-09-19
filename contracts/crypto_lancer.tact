@@ -15,11 +15,17 @@ struct Ids {
 }
 
 contract CryptoLancer with Deployable, Resumable {
+    // contract Id counter
     id: Int;
+    // contract Owner
     owner: Address;
+    // Resumable required field 
     stopped: Bool;
+    // <contract Id, Record>
     contracts: map<Int, Record>;
+    // <employee Address, Set<contractId>>
     employee_ids: map<Address, Ids>;
+    // <employer Address, Set<contractId>>
     employer_ids: map<Address, Ids>;
 
     init(owner: Address) {
